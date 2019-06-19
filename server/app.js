@@ -13,6 +13,11 @@ app.get('*', (req, res) => {
 
 io.on('connection', (socket) => {
     console.log(socket);
+
+    socket.on('test', data => {
+        console.log(data);
+        socket.emit('t', {msg: 't'});
+    })
 });
 
 http.listen(process.env.PORT);

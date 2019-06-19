@@ -3,15 +3,17 @@ import { Menu } from "./modules/menu.module";
 
 import { IndexView } from "./views/index.view";
 import { AboutView } from "./views/about.view";
+import { Socket } from "./modules/socket.module";
+
+new Menu();
+const s = new Socket();
 
 let router: Router = new Router([
-    { path: '/', view: new IndexView() },
+    { path: '/', view: new IndexView(s) },
     { path: '/about', view: new AboutView() }
 ]);
 
 router.route();
-
-new Menu();
 
 //#region "Register SW"
 if('serviceWorker' in navigator) {

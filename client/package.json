@@ -34,6 +34,7 @@
     "workbox-webpack-plugin": "^4.3.1"
   },
   "dependencies": {
+    "@types/socket.io-client": "^1.4.32",
     "express": "^4.17.1",
     "lodash": "^4.17.11"
   }
