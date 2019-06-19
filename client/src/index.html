@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Your keywords here">
+    <meta name="description" content="This is my PWA boilerplate">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PWA Boilerplate</title>
+</head>
+<body>
+    <div class="side-bar js-side-bar">
+        <ul class="side-bar__nav">
+            <li class="nav__item nav__item--name"><a href="#" data-route="/" class="nav__link nav__link--name">PWA</a></li>
+            <li class="nav__item"><a href="#" data-route="/about" class="nav__link">About</a></li>
+        </ul>
+    </div>
+    <div class="window">
+        <div class="banner">
+            <div class="banner_top">
+                <!-- <div>
+                    <button class="menu-btn js-menu-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path fill="#ffffff" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+                    </button>
+                </div> -->
+                <div class="banner__pagename">
+                    <button class="menu-btn js-menu-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path fill="#ffffff" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+                    </button>
+                    <h1 class="pagename"></h1>
+                </div>
+            </div>
+            <div class="banner__tabs"></div>
+        </div>
+        <div class="router-outlet"></div>
+    </div>
+</body>
+</html>
