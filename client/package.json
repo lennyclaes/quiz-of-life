@@ -8,7 +8,8 @@
   "scripts": {
     "dev-server": "node devserver/app.js",
     "build": "webpack --config webpack.prod.js",
-    "dev": "webpack-dev-server --open --config webpack.dev.js"
+    "dev": "webpack-dev-server --open --config webpack.dev.js",
+    "watch": "webpack --watch --config webpack.dev.js"
   },
   "keywords": [],
   "author": "",
