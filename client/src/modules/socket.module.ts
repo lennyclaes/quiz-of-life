@@ -1,6 +1,3 @@
-// import * as io from "socket.io-client";
-// importScripts('/socket.io/socket.io.js');
-
 export class Socket {
     socket: any;
 

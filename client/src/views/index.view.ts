@@ -9,8 +9,7 @@ export class IndexView extends View {
     }
 
     onLoad() {
-        console.log('My first pageload');
-        this.name('Home');
+        this.name('Quiz of Life');
         this.socket.emit('test', {msg: 'test'});
         this.socket.on('t').then((data: any) => {
             console.log(data);
