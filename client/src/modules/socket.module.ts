@@ -7,7 +7,7 @@ export class Socket {
     constructor(url?: string) {
         this.socket = io();
 
-        this.socket.on('connection', () => {
+        this.socket.on('connect', () => {
             console.log('connected');
         });
     }
