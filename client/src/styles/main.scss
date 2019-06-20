@@ -2,6 +2,7 @@
 @import "./sidebar.scss";
 @import "./banner.scss";
 @import "./window.scss";
+@import "./join.scss";
 
 * {
     margin: 0;
@@ -9,9 +10,14 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
 body {
     display: flex;
-    height: 100%;
     overflow: hidden;
 }
 
