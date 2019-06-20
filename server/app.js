@@ -7,6 +7,7 @@ const path = require('path');
 const Player = require('./modules/Player');
 
 const players = [];
+let controller;
 
 app.use(express.static(path.resolve('../client/dist')));
 
@@ -20,7 +21,13 @@ io.on('connection', (socket) => {
     socket.on('client:join', data => {
         const player = new Player(data.name, socket);
         players.push(player);
+        sendPlayersToController();
     });
+
+    socket.on('client:controller', () => {
+        controller = socket;
+        sendPlayersToController();
+    })
 
     socket.on('client:data:player-info', (data) => {
         let counter = 0;
@@ -32,7 +39,6 @@ io.on('connection', (socket) => {
                 name: players[counter].name,
                 score: players[counter].score
             };
-            console.log(player);
             socket.emit('server:data:player-info', {msg: player});
         } else {
             socket.emit('server:data:player-info', {msg: null});
@@ -46,7 +52,25 @@ io.on('connection', (socket) => {
             counter++;
         }
         players.splice(counter, 1);
-    })
+    });
+
+    socket.on('client:data:control-players', () => {
+        sendPlayersToController();
+    });
 });
+
+function sendPlayersToController() {
+    if(controller != null) {
+        let obj = [];
+        players.forEach(player => {
+            obj.push({
+                name: player.name,
+                score: player.score
+            });
+        });
+        console.log(obj);
+        controller.emit('server:data:control-players', {msg: obj});
+    }
+}
 
 http.listen(process.env.PORT);

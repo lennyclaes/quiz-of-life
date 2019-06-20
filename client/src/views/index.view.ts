@@ -20,7 +20,6 @@ export class IndexView extends View {
             </div>
         `);
         this.socket = socket;
-        console.log(socket);
     }
 
     join(name: string) {

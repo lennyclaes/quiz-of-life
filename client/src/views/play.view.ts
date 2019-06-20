@@ -21,7 +21,6 @@ export class PlayView extends View {
         `);
 
         this.socket = socket;
-        console.log(socket);
     }
 
 

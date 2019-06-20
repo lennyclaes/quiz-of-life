@@ -16,7 +16,7 @@ const s = new Socket();
 let router: Router = new Router([
     { path: '/', view: new IndexView(s) },
     { path: '/play', view: new PlayView(s) },
-    { path: 'control', view: new ControlView(s) }
+    { path: '/control', view: new ControlView(s) }
 ]);
 
 router.route();
