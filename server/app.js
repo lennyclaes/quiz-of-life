@@ -3,7 +3,9 @@ const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const path = require('path');
+const Player = require('./modules/Player');
 
+const players = [];
 
 app.use(express.static(path.resolve('../client/dist')));
 
@@ -14,9 +16,9 @@ app.get('*', (req, res) => {
 io.on('connection', (socket) => {
     console.log('Connected');
 
-    socket.on('test', data => {
-        console.log(data);
-        socket.emit('t', {msg: 't'});
+    socket.on('join', data => {
+        const player = new Player(data.name, socket);
+        players.push(player);
     })
 });
 
