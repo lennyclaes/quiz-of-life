@@ -20,11 +20,14 @@ export class IndexView extends View {
             </div>
         `);
         this.socket = socket;
+        console.log(socket);
     }
 
     join(name: string) {
         if(name.length > 0) {
-            console.log(name);
+            this.socket.emit('client:join', {
+                name: name
+            });
             (<any>window.history).navigate({}, document.title, '/play');
         } else {
             console.error('No name provided');

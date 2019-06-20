@@ -16,9 +16,30 @@ app.get('*', (req, res) => {
 io.on('connection', (socket) => {
     console.log('Connected');
 
-    socket.on('join', data => {
+    socket.on('client:join', data => {
         const player = new Player(data.name, socket);
         players.push(player);
+    });
+
+    socket.on('client:data:player-info', (data) => {
+        let counter = 0;
+        while(counter < players.length && players[counter].socket !== socket) {
+            counter++;
+        }
+        let player = {
+            name: players[counter].name,
+            score: players[counter].score
+        };
+        console.log(player);
+        socket.emit('server:data:player-info', {msg: player});
+    });
+
+    socket.on('disconnect', () => {
+        let counter = 0;
+        while(counter < players.length && players[counter].socket !== socket) {
+            counter++;
+        }
+        players.splice(counter, 1);
     })
 });
 
