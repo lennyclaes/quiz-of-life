@@ -25,6 +25,7 @@ export class IndexView extends View {
     join(name: string) {
         if(name.length > 0) {
             console.log(name);
+            (<any>window.history).navigate({}, document.title, '/play');
         } else {
             console.error('No name provided');
         }
@@ -38,6 +39,6 @@ export class IndexView extends View {
             e.preventDefault();
             const name: string = (<any>document.querySelector('.js-name')).value;
             this.join(name);
-        })
+        });
     }
 }

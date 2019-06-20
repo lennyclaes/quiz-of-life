@@ -13,6 +13,9 @@ export class Router {
         window.addEventListener('load', () => {
             this.loadPage();
         });
+        window.addEventListener('pushstate', () => {
+            this.loadPage();
+        });
         window.addEventListener('popstate', () => {
             this.loadPage();
         });
@@ -24,14 +27,13 @@ export class Router {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 this.changeURL(link);
-                this.loadPage();
             });
         });
     }
 
     private changeURL(link: any): void {
         const route = link.dataset.route;
-        window.history.pushState({}, document.title, route);
+        (<any>window.history).navigate({}, document.title, route);
     }
 
     private loadPage(): void {

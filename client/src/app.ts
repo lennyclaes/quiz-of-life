@@ -2,15 +2,19 @@ import { Router } from "./modules/router.module";
 import { Menu } from "./modules/menu.module";
 
 import { IndexView } from "./views/index.view";
-import { AboutView } from "./views/about.view";
+import { PlayView } from "./views/play.view";
 import { Socket } from "./modules/socket.module";
 
-// new Menu();
+(<any>window.history).navigate = function navigate(object: Object, title: string, url: string) {
+    window.history.pushState(object, title, url);
+    window.dispatchEvent(new Event('pushstate'));
+}
+
 const s = new Socket();
 
 let router: Router = new Router([
     { path: '/', view: new IndexView(s) },
-    { path: '/about', view: new AboutView() }
+    { path: '/play', view: new PlayView() }
 ]);
 
 router.route();
