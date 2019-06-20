@@ -4,6 +4,7 @@ import { Menu } from "./modules/menu.module";
 import { IndexView } from "./views/index.view";
 import { PlayView } from "./views/play.view";
 import { Socket } from "./modules/socket.module";
+import { ControlView } from "./views/control.view";
 
 (<any>window.history).navigate = function navigate(object: Object, title: string, url: string) {
     window.history.pushState(object, title, url);
@@ -14,7 +15,8 @@ const s = new Socket();
 
 let router: Router = new Router([
     { path: '/', view: new IndexView(s) },
-    { path: '/play', view: new PlayView(s) }
+    { path: '/play', view: new PlayView(s) },
+    { path: 'control', view: new ControlView(s) }
 ]);
 
 router.route();
