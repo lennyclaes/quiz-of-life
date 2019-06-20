@@ -1,14 +1,76 @@
 :global(.wrap) {
    display: flex;
-   justify-content: center;
+   justify-content: flex-start;
    align-items: center;
    flex-direction: column;
    height: 100%;
-   background: #cecece;
+   background: $blue;
+   padding: 150px 5px 0 5px;
 }
 
 :global(.title) {
     font-family: 'Bangers', Arial, Helvetica, sans-serif;
-    font-size: 32px;
+    font-size: 36px;
     letter-spacing: 1.2px;
+    color: $dark1;
+    margin: 25px 0;
+    color: #ffffff;
+}
+
+:global(.title-sub) {
+    font-family: 'Londrina Solid', Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    color: $dark2;
+    color: #fcfcfc; 
+}
+
+:global(.form) {
+    width: 80%;
+    text-align: center;
+}
+
+:global(.form-flow) {
+    margin: 10px 0;   
+}
+
+:global(.form__label) {
+    font-family: 'Londrina Solid', Arial, Helvetica, sans-serif;
+    color: #fcfcfc;   
+    font-size: 20px;
+}
+
+:global(.form__input) {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    background: transparent;
+    padding: 10px;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Londrina Solid', Arial, Helvetica, sans-serif;
+    outline: none;
+}
+
+:global(.form__input):focus {
+    border-bottom: 3px solid #ffffff;
+}
+
+:global(.form__submit) {
+    width: 100%;
+    padding: 10px;
+    background: $orange;
+    font-family: 'Londrina Solid', Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: #ffffff;   
+    border: none;
+    margin: 10px 0;
+    cursor: pointer;
+    box-shadow: 0 6px lighten($color: $orange, $amount: 10%);
+    outline: none;
+    transition: 0.1s linear;
+}
+
+:global(.form__submit):active {
+    box-shadow: 0 -6px darken($color: $orange, $amount: 10%);
+    transform: translateY(6px);
 }
