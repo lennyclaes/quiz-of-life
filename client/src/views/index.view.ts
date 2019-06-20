@@ -11,10 +11,10 @@ export class IndexView extends View {
                 <form class="form js-form">
                     <div class="form-flow">
                         <label class="form__label" for="name">Vul hier jouw naam in</label><br>
-                        <input type="text" class="form__input" name="name" autocomplete="off" />
+                        <input type="text" class="form__input js-name" name="name" autocomplete="off" required />
                     </div>
                     <div class="form-flow">
-                        <button type="submit" class="form__submit">IK SPEEL MEE!</button>
+                        <input type="submit" class="form__submit js-form-submit" value="IK SPEEL MEE!" />
                     </div>
                 </form>
             </div>
@@ -22,11 +22,22 @@ export class IndexView extends View {
         this.socket = socket;
     }
 
+    join(name: string) {
+        if(name.length > 0) {
+            console.log(name);
+        } else {
+            console.error('No name provided');
+        }
+    }
+
     onLoad() {
-        this.name('Quiz of Life');
-        this.socket.emit('test', {msg: 'test'});
-        this.socket.on('t').then((data: any) => {
-            console.log(data);
+        this.name('Kom erbij!');
+        const form = document.querySelector('.js-form');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name: string = (<any>document.querySelector('.js-name')).value;
+            this.join(name);
         })
     }
 }
