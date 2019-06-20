@@ -6,7 +6,7 @@ export class IndexView extends View {
     constructor(socket: Object) {
         super(`
             <div class="wrap">
-                <h1>Wie kent Lenny het best?</h1>
+                <h1 class="title" >Wie kent Lenny het best?</h1>
                 <h3>Ontdek het nu!</h3>
                 <form class="form js-form">
                     <div class="form-flow">

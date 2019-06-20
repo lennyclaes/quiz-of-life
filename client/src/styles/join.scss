@@ -6,3 +6,9 @@
    height: 100%;
    background: #cecece;
 }
+
+:global(.title) {
+    font-family: 'Bangers', Arial, Helvetica, sans-serif;
+    font-size: 32px;
+    letter-spacing: 1.2px;
+}
