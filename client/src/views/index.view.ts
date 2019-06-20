@@ -10,7 +10,7 @@ export class IndexView extends View {
                 <h3 class="title-sub">Ontdek het nu!</h3>
                 <form class="form js-form">
                     <div class="form-flow">
-                        <label class="form__label" for="name">Jouw naam</label><br>
+                        <label class="form__label" for="name">Vul hier jouw naam in</label><br>
                         <input type="text" class="form__input" name="name" autocomplete="off" />
                     </div>
                     <div class="form-flow">

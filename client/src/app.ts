@@ -5,7 +5,7 @@ import { IndexView } from "./views/index.view";
 import { AboutView } from "./views/about.view";
 import { Socket } from "./modules/socket.module";
 
-new Menu();
+// new Menu();
 const s = new Socket();
 
 let router: Router = new Router([

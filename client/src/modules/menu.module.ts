@@ -6,7 +6,7 @@ export class Menu {
     constructor() {
         this.menuBtn = document.querySelector('.js-menu-btn');
         this.menuElement = document.querySelector('.js-side-bar');
-        this.open = true;
+        this.open = false;
 
         this.menuBtn.addEventListener('click', () => {
             this.toggleMenu();
