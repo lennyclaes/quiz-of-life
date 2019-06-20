@@ -26,12 +26,17 @@ io.on('connection', (socket) => {
         while(counter < players.length && players[counter].socket !== socket) {
             counter++;
         }
-        let player = {
-            name: players[counter].name,
-            score: players[counter].score
-        };
-        console.log(player);
-        socket.emit('server:data:player-info', {msg: player});
+        if(players[counter] != null) {
+            let player = {
+                name: players[counter].name,
+                score: players[counter].score
+            };
+            console.log(player);
+            socket.emit('server:data:player-info', {msg: player});
+        } else {
+            socket.emit('server:data:player-info', {msg: null});
+
+        }
     });
 
     socket.on('disconnect', () => {

@@ -7,6 +7,10 @@ export class Socket {
         this.socket.on('connect', () => {
             console.log('connected');
         });
+
+        this.socket.on('disconnect', () => {
+            (<any>window.history).navigate({}, document.title, '/');
+        })
     }
 
     emit(channel: string, data?: Object) {
