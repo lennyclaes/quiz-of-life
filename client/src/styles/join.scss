@@ -58,16 +58,17 @@
 :global(.form__submit) {
     width: 100%;
     padding: 10px;
-    background: $orange;
+    background: lighten($color: $orange, $amount: 5%);
     font-family: 'Londrina Solid', Arial, Helvetica, sans-serif;
     font-size: 20px;
     color: #ffffff;   
     border: none;
     margin: 10px 0;
     cursor: pointer;
-    box-shadow: 0 6px lighten($color: $orange, $amount: 10%);
+    box-shadow: 0 6px $orange;
     outline: none;
     transition: 0.1s linear;
+    border-radius: 3px;
 }
 
 :global(.form__submit):active {
