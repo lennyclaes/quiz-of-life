@@ -68,11 +68,14 @@ module.exports = {
             skipWaiting: true
         }),
         new WebpackPwaManifest({
-            name: 'My PWA Project',
-            short_name: 'PWA',
-            description: 'My PWA Boilerplate',
+            name: 'De quiz van mijn leven',
+            short_name: 'Quiz',
+            description: 'De quiz van mijn leven.',
             background_color: '#bada55',
             theme_color: '#333333',
+            display: 'standalone',
+            scope: '/',
+            start_url: '/',
             icons: [
                 {
                     src: path.resolve('src/assets/icon.png'),

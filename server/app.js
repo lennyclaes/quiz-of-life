@@ -1,6 +1,7 @@
+const fs = require('fs');
 const express = require('express');
 const app = express();
-const http = require('http').createServer(app);
+const http = require('http').createServer( app);
 const io = require('socket.io')(http);
 const path = require('path');
 const Player = require('./modules/Player');

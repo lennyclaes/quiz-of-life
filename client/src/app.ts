@@ -19,6 +19,12 @@ let router: Router = new Router([
 
 router.route();
 
+window.addEventListener('scroll', () => {
+    console.log('scroll');
+    window.scrollTo(0, 0);
+    document.body.scrollTop = 0;
+})
+
 //#region "Register SW"
 if('serviceWorker' in navigator) {
     window.addEventListener('load', () => {

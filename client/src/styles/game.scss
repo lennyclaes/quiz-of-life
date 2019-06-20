@@ -1,0 +1,13 @@
+:global(.player) {
+    background: $orange;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 5px;
+}
+
+:global(.player__info) {
+    margin: 0 10px;
+    color: #ffffff;
+    font-family: 'Londrina Solid', Arial, Helvetica, sans-serif;   
+}

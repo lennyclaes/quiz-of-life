@@ -4,6 +4,8 @@
 @import "./banner.scss";
 @import "./window.scss";
 @import "./join.scss";
+@import "./game.scss";
+
 
 * {
     margin: 0;
@@ -19,7 +21,6 @@ html, body {
 
 body {
     display: flex;
-    overflow: hidden;
 }
 
 :global(.window) {
