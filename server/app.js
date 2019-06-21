@@ -16,17 +16,20 @@ app.get('*', (req, res) => {
 });
 
 io.on('connection', (socket) => {
+    socket.removeAllListeners();
     console.log('Connected');
 
     socket.on('client:join', data => {
         const player = new Player(data.name, socket);
         players.push(player);
-        sendPlayersToController();
+        io.to(controller).emit('server:data:control-players', {msg: getPlayersToController()});
     });
 
     socket.on('client:controller', () => {
         controller = socket;
-        sendPlayersToController();
+        console.log(socket);
+        console.log(controller);
+        socket.emit('server:data:control-players', {msg: getPlayersToController()});
     })
 
     socket.on('client:data:player-info', (data) => {
@@ -55,11 +58,11 @@ io.on('connection', (socket) => {
     });
 
     socket.on('client:data:control-players', () => {
-        sendPlayersToController();
+        io.to(controller).emit('server:data:control-players', {msg: getPlayersToController()});
     });
 });
 
-function sendPlayersToController() {
+function getPlayersToController() {
     if(controller != null) {
         let obj = [];
         players.forEach(player => {
@@ -69,7 +72,7 @@ function sendPlayersToController() {
             });
         });
         console.log(obj);
-        controller.emit('server:data:control-players', {msg: obj});
+        return obj;
     }
 }
 
